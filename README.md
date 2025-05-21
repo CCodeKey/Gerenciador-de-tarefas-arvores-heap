@@ -1,1 +1,1 @@
-# Gerenciador de tarefas árvores binária de busca Heap
+# Gerenciador de tarefas com árvores binária de busca
