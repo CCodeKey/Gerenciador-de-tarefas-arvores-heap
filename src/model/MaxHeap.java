@@ -25,10 +25,11 @@ public class MaxHeap {
 			int indicePai = (index - 1) / 2;
 
 			Task elementoAtual = heap.get(index);
-			Task paiAtual = heap.get(indicePai);
-
+			Task paiAtual = heap.get(indicePai); 
+			
 			if (elementoAtual.getPrioridade() > paiAtual.getPrioridade()) {
 				swap(index, indicePai);
+				index = indicePai;
 			} else {
 				break;
 			}
@@ -37,7 +38,6 @@ public class MaxHeap {
 
 	public void swap(int indexFilho, int indexPai) {
 		Task temp = heap.get(indexFilho);
-		//         indice  ,  	   tarefa
 		heap.set(indexFilho, heap.get(indexPai));
 		heap.set(indexPai, temp);
 	}
