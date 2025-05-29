@@ -1,45 +1,23 @@
 package principal;
 
+import java.util.Scanner;
+
 import model.MaxHeap;
 import model.Task;
 
 public class Main {
 	public static void main(String[] args) {
-		MaxHeap max = new MaxHeap();
-		
-		Task tarefa1 = new Task("Ler um livro", 2);
-		Task tarefa2 = new Task("Jogar videogame", 4);
-		Task tarefa3 = new Task("Dentista", 5);
-		Task tarefa4 = new Task("Compras", 2);
-		Task tarefa5 = new Task("Ir ao Shopping", 3);
+		Scanner in = new Scanner(System.in);
+		MaxHeap heap = new MaxHeap();
 
-		max.insert(tarefa1);
+//		Funções da aplicação:
+//			peek - mostrar a raiz
+//			insert - inserir uma atividade
+//			heapfiUp - reordena o heap subindo a ultima atividade 
+//			suap - trocar de posicoes no heap
+//			extractMaz - remover a raiz
+//			heapfiDown - reordena o heap removendo a raiz e subindo a ultima atividade do heap e pondo no lugar da raiz
+//			showHeap - mostrar o Heap graficamente
 
-		max.visualizarHeap();
-		System.out.println();
-
-		max.insert(tarefa2);
-
-		max.visualizarHeap();
-		System.out.println();
-
-		max.insert(tarefa3);
-
-		max.visualizarHeap();
-		System.out.println();
-
-		max.insert(tarefa4);
-
-		max.visualizarHeap();
-
-		System.out.println();
-		max.insert(tarefa5);
-
-		max.visualizarHeap();
-
-		System.out.println();
-		
-//		System.out.println(max.peek());
 	}
-
 }
