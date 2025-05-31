@@ -16,7 +16,11 @@ public class MaxHeap {
 	}
 
 	public void setModoVisualizacao(int modoVisualizacao) {
-		this.modoVisualizacao = modoVisualizacao;
+		if (modoVisualizacao > 0 && modoVisualizacao < 4) {
+			this.modoVisualizacao = modoVisualizacao;
+		} else {
+			System.out.println("\nValor inválido!");
+		}
 	}
 
 	public Task peek() {
@@ -94,10 +98,9 @@ public class MaxHeap {
 		}
 	}
 
-	
 	public void showHeap() {
 		if (heap.isEmpty()) {
-			System.out.println("Heap vazia!");
+			System.out.println("\nHeap vazia!");
 			return;
 		}
 
