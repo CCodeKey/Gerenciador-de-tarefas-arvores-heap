@@ -8,11 +8,19 @@ Projeto em Java que visualiza estruturas de dados do tipo **Heap** (árvore bin�
   2. Descrições apenas (`modoVisualizacao = 2`)
   3. Prioridades + Descrições (`modoVisualizacao = 3`)
 - **Representação gráfica** da árvore heap com indentação e conexões entre nós.
-- **Suporte a heaps vazias** (com mensagem explicativa).
+- **Inserção de elemento**:
+  1. insert
+  2. heapfyUp
+- **Remoção de elemento**:
+  1. extractMax
+  2. heapfyDown
+- **Visualização da Raiz**:
+  1. peek
 
 ## 📊 Exemplo de Saída
 ![Exemplo de Heap Visualizada](heap_example.png)  
-*(Imagem ilustrativa: substitua pelo screenshot real do seu projeto)*
+
+---
 
 ## 👥 Autores:
 <table>
