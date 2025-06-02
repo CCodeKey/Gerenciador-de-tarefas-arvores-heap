@@ -38,13 +38,13 @@ public class MaxHeap {
 
 	private void heapfiUp(int index) {
 		while (index > 0) {
-			int indicePai = (index - 1) / 2;
+			int indicePai = (index - 1) / 2; 
 
-			Task elementoAtual = heap.get(index);
-			Task paiAtual = heap.get(indicePai);
+			Task elementoAtual = heap.get(index); 
+			Task paiAtual = heap.get(indicePai); 
 
 			if (elementoAtual.getPrioridade() > paiAtual.getPrioridade()) {
-				swap(index, indicePai);
+				swap(index, indicePai); // invertendo posições
 				index = indicePai;
 			} else {
 				break;
@@ -104,51 +104,55 @@ public class MaxHeap {
 			return;
 		}
 
-		int height = (int) (Math.log(heap.size()) / Math.log(2)) + 1;
-		int maxLevel = height - 1;
-		int currentSize = heap.size();
+		int tamanho = (int) (Math.log(heap.size()) / Math.log(2)) + 1; // tamamho da arvore 7-2^3
+		int maxLevel = tamanho - 1; // altura
+		int currentSize = heap.size(); 
 
-		for (int level = 0; level < height; level++) {
-			int itemsInLevel = (int) Math.pow(2, level);
-			int start = (int) Math.pow(2, level) - 1;
-			int end = Math.min(start + itemsInLevel, currentSize);
-
-			// Espaçamento antes dos elementos
-			int leadingSpaces = (int) Math.pow(2, maxLevel - level) - 1;
-			printSpaces(leadingSpaces * 3);
+		for (int level = 0; level < tamanho; level++) {
+			int itensNoNivelAtual = (int) Math.pow(2, level); //2-4-8..
+            // inicio dos elementos nesse nivel
+			int start = (int) Math.pow(2, level) - 1; // 3-2^2-1
+            // fim dos elementos nesse nivel
+			int end = Math.min(start + itensNoNivelAtual, currentSize);
+			// Espaço entre os itens
+			int centralizandoArvore = (int) Math.pow(2, maxLevel - level) - 1; 
+			printSpaces(centralizandoArvore * 3);
 
 			for (int i = start; i < end; i++) {
-				if (this.modoVisualizacao == 1) {
+				if (this.modoVisualizacao == 1) { // visualizacao por prioridade
 					System.out.print(heap.get(i).getPrioridade());
-				} else if (this.modoVisualizacao == 2) {
+
+				} else if (this.modoVisualizacao == 2) { // visualizacao por descricao
 					System.out.print(heap.get(i).getDescricao());
-				} else if (this.modoVisualizacao == 3) {
+
+				} else if (this.modoVisualizacao == 3) { // visualizacao por prioridade+descricao
 					System.out.print(heap.get(i).getDescricao() + " - " + heap.get(i).getPrioridade());
 				}
-				// Espaço entre elementos
-				int spacing = (int) Math.pow(2, maxLevel - level + 1) - 1;
-				printSpaces(spacing * 3);
+
+				// Espaço horizontal entre os itens desse nivel
+				int spacing_horizontal = (int) Math.pow(2, maxLevel - level + 1) - 1; // calculando a potencia
+				printSpaces(spacing_horizontal * 3);
 			}
 			System.out.println();
 
-			// Linhas conectando os nós
-			if (level < height - 1) {
-				printSpaces((leadingSpaces - 1) * 3);
+			if (level < tamanho - 1) { // verificando se é o ultimo nivel
+				printSpaces((centralizandoArvore - 1) * 3); // espaços
+
 				for (int i = start; i < end; i++) {
-					if (2 * i + 1 < heap.size())
-						System.out.print("  /");
-					if (2 * i + 2 < heap.size())
-						System.out.print(" \\ ");
+					if (2 * i + 1 < heap.size()) // verificando se o filho esquerdo existe no heap
+						System.out.print("  /"); 
+					if (2 * i + 2 < heap.size()) // verificando se o filho direito existe no heap
+						System.out.print(" \\ "); 
 					else
 						System.out.print("   ");
-					printSpaces((leadingSpaces - 1) * 3);
+					printSpaces((centralizandoArvore - 1) * 3);
 				}
 				System.out.println();
 			}
 		}
 	}
 
-	private void printSpaces(int count) {
+	private void printSpaces(int count) { // recebe um numero de espaços para mostrar na tela
 		for (int i = 0; i < count; i++) {
 			System.out.print(" ");
 		}
