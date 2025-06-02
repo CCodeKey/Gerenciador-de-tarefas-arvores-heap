@@ -1,5 +1,5 @@
 # Gerenciador de tarefas com MaxHeap
-Projeto em Java que visualiza estruturas de dados do tipo **Heap** de forma gráfica no console, com diferentes modos de exibição.
+Projeto em Java que visualiza estruturas de dados do tipo **Heap** (árvore binária) de forma gráfica no console, com diferentes modos de exibição.
 
 ## ✨ Funcionalidades
 
